@@ -507,21 +507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7027ab26fb3c69348a1b96b66221a32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLevel: 9
-  isOver: 0
-  animalPrefab: {fileID: 0}
   animalGroup: {fileID: 1072130431}
-  poolSize: 9
-  animalPool:
-  - {fileID: 95532275609104415, guid: c2b35399fcab3f348b26adb52d8650de, type: 3}
-  - {fileID: -2812090210365458855, guid: 51d5b7b6849776f469f0580b6d1ece7e, type: 3}
-  - {fileID: -9001893107660475573, guid: 8b1e58e1cae1fb342bcbd7c74732a19e, type: 3}
-  - {fileID: 4327553297325101373, guid: 91819a04ab9b8b94eb4715112e4eddd4, type: 3}
-  - {fileID: -4528476740663471715, guid: 241610645caae2a468152309ff2869c8, type: 3}
-  - {fileID: 3162584406393483296, guid: d2b1a7f0e8069f845b6ee6d839b10205, type: 3}
-  - {fileID: 5024421290505123584, guid: 7f450141255173549a537289f1f1db23, type: 3}
-  - {fileID: -106575461409534240, guid: 2362d08be2a6fc94d9e3be6bbd4585d6, type: 3}
-  - {fileID: 6748313583787689736, guid: 4fad34673e03f1d468ec3c8b06449b94, type: 3}
+  lastAnimal: {fileID: 0}
+  maxLevel: 2
+  isOver: 0
 --- !u!4 &1946889926
 Transform:
   m_ObjectHideFlags: 0

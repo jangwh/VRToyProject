@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    //public GameObject animalPrefab;
+    public GameObject animalPrefab;
     public Transform animalGroup;
     public Animal lastAnimal;
     public int maxLevel;
@@ -37,24 +37,31 @@ public class GameManager : MonoBehaviour
 
     public void TouchUp()
     {
-        lastAnimal.Drop();
-        lastAnimal = null;
+        if (lastAnimal != null)
+        {
+            lastAnimal.Drop();
+            lastAnimal = null;
+        }
     }
     void GameStart()
     {
         Invoke("NextAnimal", 1.5f);
     }
-
+    Animal GetAnimal()
+    {
+        int ran = Random.Range(0, maxLevel);
+        GameObject instant = ObjectManager.Instance.SpawnAnimal(ran, animalGroup.position);
+        Animal instantAnimal = instant.GetComponent<Animal>();
+        return instantAnimal;
+    }
     void NextAnimal()
     {
         if (isOver)
             return;
 
-        int ran = Random.Range(0, maxLevel);
-        GameObject instant = ObjectManager.Instance.SpawnAnimal(ran, animalGroup.position);
-        lastAnimal = instant.GetComponent<Animal>();
-        //lastAnimal.level = Random.Range(0, maxLevel); // 0 ~ 8 중 랜덤
-        instant.SetActive(true);
+        Animal newAnimal = GetAnimal();
+        lastAnimal = newAnimal;
+        lastAnimal.gameObject.SetActive(true);
 
         // 다음 동물 생성을 기다리는 코루틴
         StartCoroutine(WaitNext());

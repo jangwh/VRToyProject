@@ -38,19 +38,8 @@ public class Animal : MonoBehaviour
     private void OnEnable()
     {
         anim.SetInteger("Level", level);
-
-        if (!anim.GetBool("IsPlaying"))
-        {
-            anim.SetBool("IsPlaying", false);
-            StartCoroutine(ResetAnimation());
-        }
     }
-    IEnumerator ResetAnimation()
-    {
-        yield return new WaitForSeconds(0.2f); // 애니메이션 길이에 맞춰 조정
-        anim.SetBool("IsPlaying", true);  // 다시 실행되지 않도록 설정
-    }
-    private void OnCollisionStay2D(Collision2D collision)
+    void OnCollisionStay(Collision collision)
     {
         // 충돌 상대편이 동물일 때
         if (collision.gameObject.tag == "Animal")
@@ -68,7 +57,7 @@ public class Animal : MonoBehaviour
                 // 내가 상대편보다 위에 있거나, 같은 높이에서 오른쪽에 있을 때
                 if (meY < otherY || (meY == otherY && meX > otherX))
                 {
-                    other.Hide(this.transform.position);
+                    other.Hide(transform.position);
                     LevelUp();
                 }
             }
@@ -87,13 +76,11 @@ public class Animal : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         anim.SetInteger("Level", level + 1);
-        anim.SetBool("IsPlaying", false);
-        StartCoroutine(ResetAnimation());
 
         yield return new WaitForSeconds(0.3f);
         level++;
         // 최대 레벨 갱신
-        GameManager.Instance.maxLevel = Mathf.Max(GameManager.Instance.maxLevel, level);
+        GameManager.Instance.maxLevel = Mathf.Max(level, GameManager.Instance.maxLevel);
         // 잠금 OFF
         isMerge = false;
     }
@@ -135,16 +122,16 @@ public class Animal : MonoBehaviour
     }
     void OnDisable()
     {
-        // 동글 속성 초기화
+        // 동물 속성 초기화
         level = 0;
         //deadTime = 0;
 
-        // 동글 위치, 크기, 회전값 초기화
+        // 동물 위치, 크기, 회전값 초기화
         transform.localPosition = Vector3.zero;
         transform.localScale = Vector3.zero;
         transform.localRotation = Quaternion.identity;
 
-        // 동글 물리 초기화
+        // 동물 물리 초기화
         rigid.useGravity = false;
         rigid.velocity = Vector2.zero;
         rigid.angularVelocity = Vector3.zero;
