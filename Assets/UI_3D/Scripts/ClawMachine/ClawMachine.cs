@@ -19,9 +19,9 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("The claw socket used to get the prizes")]
         XRSocketInteractor m_ClawSocket;
 
-        [SerializeField]
-        [Tooltip("The component used to apply a force on the prizes")]
-        UfoAbductionForce m_UfoAbductionForce;
+        //[SerializeField]
+        //[Tooltip("The component used to apply a force on the prizes")]
+        //UfoAbductionForce m_UfoAbductionForce;
 
         [SerializeField]
         [Tooltip("The claw speed when not carrying a prize")]
@@ -43,13 +43,13 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("The claw's maximum local position. Used to clamp the claw position")]
         Vector2 m_MaxClawPosition;
 
-        [SerializeField]
-        [Tooltip("The Sparklies particle. This particle is activated while the UfoAbductionForce is enabled")]
-        ParticleSystem m_SparkliesParticle;
+        //[SerializeField]
+        //[Tooltip("The Sparklies particle. This particle is activated while the UfoAbductionForce is enabled")]
+        //ParticleSystem m_SparkliesParticle;
 
-        [SerializeField]
-        [Tooltip("The UfoBeam particle. This particle is activated while the PushButton is held down")]
-        ParticleSystem m_UfoBeamParticle;
+        //[SerializeField]
+        //[Tooltip("The UfoBeam particle. This particle is activated while the PushButton is held down")]
+        //ParticleSystem m_UfoBeamParticle;
 
         bool m_ButtonPressed;
         Vector2 m_JoystickValue;
@@ -91,10 +91,10 @@ namespace UnityEngine.XR.Content.Interaction
         IEnumerator TryGrabPrizeState()
         {
             // Start particles, activate the Socket and the UfoAbductionForce
-            m_SparkliesParticle.Play();
-            m_UfoBeamParticle.Play();
+            //m_SparkliesParticle.Play();
+            //_UfoBeamParticle.Play();
             m_ClawSocket.socketActive = true;
-            m_UfoAbductionForce.enabled = true;
+            //m_UfoAbductionForce.enabled = true;
 
             // Try get a prize, the claw can still move
             while (m_ButtonPressed && !m_ClawSocket.hasSelection)
@@ -104,8 +104,8 @@ namespace UnityEngine.XR.Content.Interaction
             }
 
             // Disable abduction force and the Sparklies particle
-            m_UfoAbductionForce.enabled = false;
-            m_SparkliesParticle.Stop();
+            //m_UfoAbductionForce.enabled = false;
+            //m_SparkliesParticle.Stop();
 
             StartCoroutine(ReleasePrizeState());
         }
@@ -121,7 +121,7 @@ namespace UnityEngine.XR.Content.Interaction
 
             // Release the prize and stop the last particle
             m_ClawSocket.socketActive = false;
-            m_UfoBeamParticle.Stop();
+            //m_UfoBeamParticle.Stop();
 
             StartCoroutine(NoPrizeState());
         }
@@ -133,6 +133,7 @@ namespace UnityEngine.XR.Content.Interaction
         public void OnButtonPress()
         {
             m_ButtonPressed = true;
+            GameManager.Instance.TouchUp();
         }
 
         /// <summary>
@@ -151,6 +152,7 @@ namespace UnityEngine.XR.Content.Interaction
         public void OnJoystickValueChangeX(float x)
         {
             m_JoystickValue.x = x;
+            GameManager.Instance.TouchDown();
         }
 
         /// <summary>
@@ -160,6 +162,7 @@ namespace UnityEngine.XR.Content.Interaction
         public void OnJoystickValueChangeY(float y)
         {
             m_JoystickValue.y = y;
+            GameManager.Instance.TouchDown();
         }
     }
 }

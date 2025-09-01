@@ -39,40 +39,8 @@ public class ObjectManager : MonoBehaviour
             LeanPool.Despawn(obj);
         }
     }
-    public GameObject SpawnAnimal00(Vector3 position)
+    public GameObject SpawnAnimal(int index, Vector3 position)
     {
-        return LeanPool.Spawn(AniPrefab[0], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal01(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[1], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal02(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[2], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal03(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[3], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal04(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[4], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal05(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[5], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal06(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[6], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal07(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[7], position, Quaternion.identity);
-    }
-    public GameObject SpawnAnimal08(Vector3 position)
-    {
-        return LeanPool.Spawn(AniPrefab[8], position, Quaternion.identity);
+        return LeanPool.Spawn(AniPrefab[index], position, Quaternion.identity);
     }
 }
