@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public GameObject animalPrefab;
+    //public GameObject animalPrefab;
     public Transform animalGroup;
     public Animal lastAnimal;
     public int maxLevel;
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void TouchUp()
     {
         lastAnimal.Drop();
+        lastAnimal = null;
     }
     void GameStart()
     {
