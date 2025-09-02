@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject animalPrefab;
     public Transform animalGroup;
     public Animal lastAnimal;
+    public AudioSource audioSource;
+    public AudioClip[] audioClip;
     public int maxSpawnLevel;
     public bool isOver;
 
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
     {
         int ran = Random.Range(0, maxSpawnLevel);
         GameObject instant = ObjectManager.Instance.SpawnAnimal(ran, animalGroup.position);
+        audioSource.PlayOneShot(audioClip[2]);
         Animal instantAnimal = instant.GetComponent<Animal>();
         return instantAnimal;
     }
@@ -90,7 +93,8 @@ public class GameManager : MonoBehaviour
     {
         // 게임 오버 및 결산
         //isOver = true;
-        //bgmPlayer.Stop();
+        audioSource.Stop();
+        audioSource.PlayOneShot(audioClip[1]);
 
         StartCoroutine("ResultRoutine");
     }

@@ -81,6 +81,7 @@ public class Animal : MonoBehaviour
         {
             Animal other = collision.gameObject.GetComponent<Animal>();
             // 조건 비교 (같은 이름인지 + 지금 합쳐지는 중이 아닌지 + 만렙이 아닌지)
+            
             if (animalName == other.animalName && !isMerge && !other.isMerge && level < 8)
             {
                 // 나와 상대편 위치 가져오기
@@ -123,7 +124,8 @@ public class Animal : MonoBehaviour
         isMerge = true;
         rigid.velocity = Vector2.zero;
         rigid.angularVelocity = Vector3.zero;
-
+        int ranNum = Random.Range(4, 7);
+        GameManager.Instance.audioSource.PlayOneShot(GameManager.Instance.audioClip[ranNum]);
         StartCoroutine("LevelUpRoutine");
     }
 
