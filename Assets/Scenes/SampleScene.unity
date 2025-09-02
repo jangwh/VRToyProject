@@ -510,7 +510,7 @@ MonoBehaviour:
   animalPrefab: {fileID: 0}
   animalGroup: {fileID: 1072130431}
   lastAnimal: {fileID: 0}
-  maxSpawnLevel: 0
+  maxSpawnLevel: 4
   isOver: 0
 --- !u!4 &1946889926
 Transform:
@@ -581,6 +581,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376210039400353937, guid: c20ce57c53543934a8ea4b804db7829d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562797057145116887, guid: c20ce57c53543934a8ea4b804db7829d, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770141528467815234, guid: c20ce57c53543934a8ea4b804db7829d, type: 3}

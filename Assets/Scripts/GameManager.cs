@@ -34,13 +34,14 @@ public class GameManager : MonoBehaviour
         if(isOver)
         {
             //게임오버
+            Result();
         }
     }
     public void TouchDown()
     {
         if (lastAnimal == null) return;
 
-        lastAnimal.Drag();
+        //lastAnimal.Drag();
     }
 
     public void TouchUp()
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void Result()
     {
         // 게임 오버 및 결산
-        isOver = true;
+        //isOver = true;
         //bgmPlayer.Stop();
 
         StartCoroutine("ResultRoutine");

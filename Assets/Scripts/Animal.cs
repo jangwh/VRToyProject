@@ -71,6 +71,7 @@ public class Animal : MonoBehaviour
         }
         anim.SetInteger("Level", level);
         capsuleCollider.enabled = true;
+        rigid.useGravity = false;
         isMerge = false;
     }
     void OnCollisionStay(Collision collision)
