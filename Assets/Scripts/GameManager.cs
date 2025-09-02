@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         if (lastAnimal == null) return;
 
-        //lastAnimal.Drag();
+        lastAnimal.Drag();
     }
 
     public void TouchUp()
@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     }
     public void Result()
     {
+        if (!isOver) return;
         // 게임 오버 및 결산
         //isOver = true;
         audioSource.Stop();
@@ -104,5 +105,6 @@ public class GameManager : MonoBehaviour
         // 남아있는 동글들을 순차적으로 숨김
         Lean.Pool.LeanPool.DespawnAll();
         yield return new WaitForSeconds(0.05f);
+        isOver = false;
     }
 }
