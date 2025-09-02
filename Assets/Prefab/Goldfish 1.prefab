@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2356425588909462439}
+  - component: {fileID: 95532275609104415}
   - component: {fileID: 2356425588909462433}
   - component: {fileID: 2356425588909462438}
-  - component: {fileID: 95532275609104415}
   - component: {fileID: 3339881106040641113}
   m_Layer: 0
   m_Name: Goldfish 1
@@ -37,6 +37,21 @@ Transform:
   - {fileID: 2356425589262590806}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95532275609104415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2356425588909462434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  animalName: Goldfish
+  isDrag: 0
 --- !u!95 &2356425588909462433
 Animator:
   serializedVersion: 5
@@ -81,19 +96,6 @@ CapsuleCollider:
   m_Height: 0.71472484
   m_Direction: 2
   m_Center: {x: -0.00035232306, y: 0.28087223, z: -0.015850097}
---- !u!114 &95532275609104415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2356425588909462434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
 --- !u!54 &3339881106040641113
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &2356425589262590800
 GameObject:

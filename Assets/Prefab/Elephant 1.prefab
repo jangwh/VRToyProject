@@ -554,9 +554,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8480472685412960718}
+  - component: {fileID: 6748313583787689736}
   - component: {fileID: 8480472685412960704}
   - component: {fileID: 8480472685412960717}
-  - component: {fileID: 6748313583787689736}
   - component: {fileID: -5423751967607107405}
   m_Layer: 0
   m_Name: Elephant 1
@@ -582,6 +582,21 @@ Transform:
   - {fileID: 8480472684445241240}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6748313583787689736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480472685412960705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 8
+  animalName: Elephant
+  isDrag: 0
 --- !u!95 &8480472685412960704
 Animator:
   serializedVersion: 5
@@ -626,19 +641,6 @@ CapsuleCollider:
   m_Height: 1.546061
   m_Direction: 2
   m_Center: {x: 0, y: 0.73950315, z: 0.17850733}
---- !u!114 &6748313583787689736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8480472685412960705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 8
 --- !u!54 &-5423751967607107405
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -664,5 +666,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0

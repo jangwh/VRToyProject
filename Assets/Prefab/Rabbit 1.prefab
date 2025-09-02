@@ -103,9 +103,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069540666348384553}
+  - component: {fileID: 4327553297325101373}
   - component: {fileID: 1069540666348384567}
   - component: {fileID: 1069540666348384552}
-  - component: {fileID: 4327553297325101373}
   - component: {fileID: 293009751593959286}
   m_Layer: 0
   m_Name: Rabbit 1
@@ -131,6 +131,21 @@ Transform:
   - {fileID: 1069540665246327773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4327553297325101373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069540666348384564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
+  animalName: Rabbit
+  isDrag: 0
 --- !u!95 &1069540666348384567
 Animator:
   serializedVersion: 5
@@ -175,19 +190,6 @@ CapsuleCollider:
   m_Height: 0.7151161
   m_Direction: 2
   m_Center: {x: -0.00035232306, y: 0.28616464, z: 0.05226299}
---- !u!114 &4327553297325101373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069540666348384564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 3
 --- !u!54 &293009751593959286
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -213,7 +215,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &3702255223186304995
 GameObject:

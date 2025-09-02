@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 
 public class Animal : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class Animal : MonoBehaviour
     Animator anim;
     CapsuleCollider capsuleCollider;
     public int level;
+    public string animalName;
 
-    bool isDrag;
+    public bool isDrag;
     bool isMerge;
 
     private void Awake()
@@ -37,7 +39,39 @@ public class Animal : MonoBehaviour
     }
     private void OnEnable()
     {
+        switch(animalName)
+        {
+            case "Goldfish":
+                level = 0;
+                break;
+            case "Chick":
+                level = 1;
+                break;
+            case "Hen":
+                level = 2;
+                break;
+            case "Rabbit":
+                level = 3;
+                break;
+            case "Cat":
+                level = 4;
+                break;
+            case "ReinDeer":
+                level = 5;
+                break;
+            case "Buffalo":
+                level = 6;
+                break;
+            case "SeaLion":
+                level = 7;
+                break;
+            case "Elephant":
+                level = 8;
+                break;
+        }
         anim.SetInteger("Level", level);
+        capsuleCollider.enabled = true;
+        isMerge = false;
     }
     void OnCollisionStay(Collision collision)
     {
@@ -45,8 +79,8 @@ public class Animal : MonoBehaviour
         if (collision.gameObject.tag == "Animal")
         {
             Animal other = collision.gameObject.GetComponent<Animal>();
-            // 조건 비교 (같은 레벨인지 + 지금 합쳐지는 중이 아닌지 + 만렙이 아닌지)
-            if (level == other.level && !isMerge && !other.isMerge && level < 8)
+            // 조건 비교 (같은 이름인지 + 지금 합쳐지는 중이 아닌지 + 만렙이 아닌지)
+            if (animalName == other.animalName && !isMerge && !other.isMerge && level < 8)
             {
                 // 나와 상대편 위치 가져오기
                 float meX = transform.position.x;
@@ -58,9 +92,29 @@ public class Animal : MonoBehaviour
                 if (meY < otherY || (meY == otherY && meX > otherX))
                 {
                     other.Hide(transform.position);
+                    // 비활성화
+                    LeanPool.Despawn(other.transform);
                     LevelUp();
+                    ObjectManager.Instance.SpawnAnimal(level, transform.position);
+                    LeanPool.Despawn(this);
+                }
+                else
+                {
+                    LevelUp();
+                    Hide(transform.position);
+                    ObjectManager.Instance.SpawnAnimal(level, transform.position);
+                    LeanPool.Despawn(this);
                 }
             }
+            if (!rigid.useGravity) rigid.useGravity = true;
+        }
+        if(collision.gameObject.tag == "Bowl")
+        {
+            if (!rigid.useGravity) rigid.useGravity = true;
+        }
+        if(collision.gameObject.tag == "GameOver")
+        {
+            GameManager.Instance.isOver = true;
         }
     }
     void LevelUp()
@@ -74,13 +128,10 @@ public class Animal : MonoBehaviour
 
     IEnumerator LevelUpRoutine()
     {
-        yield return new WaitForSeconds(0.2f);
-        anim.SetInteger("Level", level + 1);
-
-        yield return new WaitForSeconds(0.3f);
         level++;
+        yield return new WaitForSeconds(0.2f);
         // 최대 레벨 갱신
-        GameManager.Instance.maxLevel = Mathf.Max(level, GameManager.Instance.maxLevel);
+        //GameManager.Instance.maxLevel = Mathf.Max(level, GameManager.Instance.maxLevel);
         // 잠금 OFF
         isMerge = false;
     }
@@ -115,8 +166,6 @@ public class Animal : MonoBehaviour
             }
             yield return null;
         }
-        // 비활성화
-        gameObject.SetActive(false);
         // 잠금 OFF
         isMerge = false;
     }
@@ -135,6 +184,6 @@ public class Animal : MonoBehaviour
         rigid.useGravity = false;
         rigid.velocity = Vector2.zero;
         rigid.angularVelocity = Vector3.zero;
-        capsuleCollider.enabled = true;
+        capsuleCollider.enabled = false;
     }
 }

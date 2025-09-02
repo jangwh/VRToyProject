@@ -9,9 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject animalPrefab;
     public Transform animalGroup;
     public Animal lastAnimal;
-    public int maxLevel;
+    public int maxSpawnLevel;
     public bool isOver;
-    //public int spawnLevel;
 
     void Awake()
     {
@@ -30,18 +29,26 @@ public class GameManager : MonoBehaviour
         // 게임 시작 세팅
         GameStart();
     }
+    void Update()
+    {
+        if(isOver)
+        {
+            //게임오버
+        }
+    }
     public void TouchDown()
     {
+        if (lastAnimal == null) return;
+
         lastAnimal.Drag();
     }
 
     public void TouchUp()
     {
-        if (lastAnimal != null)
-        {
-            lastAnimal.Drop();
-            lastAnimal = null;
-        }
+        if (lastAnimal == null) return;
+
+        lastAnimal.Drop();
+        lastAnimal = null;
     }
     void GameStart()
     {
@@ -49,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
     Animal GetAnimal()
     {
-        int ran = Random.Range(0, maxLevel);
+        int ran = Random.Range(0, maxSpawnLevel);
         GameObject instant = ObjectManager.Instance.SpawnAnimal(ran, animalGroup.position);
         Animal instantAnimal = instant.GetComponent<Animal>();
         return instantAnimal;
@@ -61,7 +68,6 @@ public class GameManager : MonoBehaviour
 
         Animal newAnimal = GetAnimal();
         lastAnimal = newAnimal;
-        lastAnimal.gameObject.SetActive(true);
 
         // 다음 동물 생성을 기다리는 코루틴
         StartCoroutine(WaitNext());

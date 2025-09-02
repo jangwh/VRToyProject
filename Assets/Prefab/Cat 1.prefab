@@ -360,9 +360,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6647131506220806908}
+  - component: {fileID: -4528476740663471715}
   - component: {fileID: 6647131506220806906}
   - component: {fileID: 6647131506220806911}
-  - component: {fileID: -4528476740663471715}
   - component: {fileID: 6521019103639567019}
   m_Layer: 0
   m_Name: Cat 1
@@ -388,6 +388,21 @@ Transform:
   - {fileID: 6647131507516179408}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4528476740663471715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647131506220806907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 4
+  animalName: Cat
+  isDrag: 0
 --- !u!95 &6647131506220806906
 Animator:
   serializedVersion: 5
@@ -432,19 +447,6 @@ CapsuleCollider:
   m_Height: 0.920686
   m_Direction: 2
   m_Center: {x: 0, y: 0.48628485, z: -0.006075859}
---- !u!114 &-4528476740663471715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6647131506220806907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 4
 --- !u!54 &6521019103639567019
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -470,7 +472,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &6647131507516179438
 GameObject:

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3078124929395302592}
+  - component: {fileID: -9001893107660475573}
   - component: {fileID: 3078124929395302606}
   - component: {fileID: 3078124929395302593}
-  - component: {fileID: -9001893107660475573}
   - component: {fileID: 6784407891776524034}
   m_Layer: 0
   m_Name: Hen 1
@@ -37,6 +37,21 @@ Transform:
   - {fileID: 3078124930700563523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9001893107660475573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078124929395302595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
+  animalName: Hen
+  isDrag: 0
 --- !u!95 &3078124929395302606
 Animator:
   serializedVersion: 5
@@ -81,19 +96,6 @@ CapsuleCollider:
   m_Height: 0.75277853
   m_Direction: 1
   m_Center: {x: 0, y: 0.44154668, z: -0.020498961}
---- !u!114 &-9001893107660475573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3078124929395302595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4713f7194be37b04d85c0394f3348da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 2
 --- !u!54 &6784407891776524034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &3078124930700563522
 GameObject:
