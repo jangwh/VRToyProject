@@ -32,6 +32,9 @@ public class UIManager : MonoBehaviour
         GameStart.gameObject.SetActive(false);
         GameRetry.gameObject.SetActive(false);
         GameEnd.gameObject.SetActive(false);
+        GameManager.Instance.ClawMachine.SetActive(true);
+        GameManager.Instance.GameStart();
+        GameManager.Instance.XRController.transform.position = GameManager.Instance.XRControllerPos.position;
     }
     public void OnGameRetry()
     {
@@ -39,6 +42,7 @@ public class UIManager : MonoBehaviour
         GameStart.gameObject.SetActive(false);
         GameRetry.gameObject.SetActive(false);
         GameEnd.gameObject.SetActive(false);
+        GameManager.Instance.XRController.transform.position = GameManager.Instance.XRControllerPos.position;
     }
     public void OnGameEnd()
     {

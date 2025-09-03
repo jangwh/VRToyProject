@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public GameObject ClawMachine;
+    public GameObject XRController;
+    public Transform XRControllerPos;
     public GameObject animalPrefab;
     public Transform animalGroup;
     public Animal lastAnimal;
@@ -25,11 +28,6 @@ public class GameManager : MonoBehaviour
             DestroyImmediate(this);
             return;
         }
-    }
-        void Start()
-    {
-        // 게임 시작 세팅
-        GameStart();
     }
     void Update()
     {
@@ -53,7 +51,7 @@ public class GameManager : MonoBehaviour
         lastAnimal.Drop();
         lastAnimal = null;
     }
-    void GameStart()
+    public void GameStart()
     {
         Invoke("NextAnimal", 1.5f);
     }
