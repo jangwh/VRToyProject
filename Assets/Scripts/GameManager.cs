@@ -106,5 +106,6 @@ public class GameManager : MonoBehaviour
         Lean.Pool.LeanPool.DespawnAll();
         yield return new WaitForSeconds(0.05f);
         isOver = false;
+        UIManager.Instance.GameRetry.gameObject.SetActive(true);
     }
 }
