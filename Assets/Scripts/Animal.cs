@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Animal : MonoBehaviour
 {
