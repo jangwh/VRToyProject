@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Animal : MonoBehaviour
 {
@@ -98,6 +99,7 @@ public class Animal : MonoBehaviour
                     LeanPool.Despawn(other.transform);
                     LevelUp();
                     ObjectManager.Instance.SpawnAnimal(level, transform.position);
+                    GameManager.Instance.score++;
                     LeanPool.Despawn(this);
                 }
                 else
@@ -105,6 +107,7 @@ public class Animal : MonoBehaviour
                     LevelUp();
                     Hide(transform.position);
                     ObjectManager.Instance.SpawnAnimal(level, transform.position);
+                    GameManager.Instance.score++;
                     LeanPool.Despawn(this);
                 }
             }

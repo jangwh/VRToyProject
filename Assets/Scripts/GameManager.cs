@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public AudioClip[] audioClip;
     public int maxSpawnLevel;
     public bool isOver;
+    public int score;
+    int bestScore;
 
     void Awake()
     {
@@ -28,6 +30,10 @@ public class GameManager : MonoBehaviour
             DestroyImmediate(this);
             return;
         }
+        if (!PlayerPrefs.HasKey("BestScore"))
+        {
+            PlayerPrefs.SetInt("BestScore", 0);
+        }
     }
     void Update()
     {
@@ -36,6 +42,7 @@ public class GameManager : MonoBehaviour
             //게임오버
             Result();
         }
+        UIManager.Instance.scoreText.text = $"Score : {score.ToString()}";
     }
     public void TouchDown()
     {
@@ -70,7 +77,7 @@ public class GameManager : MonoBehaviour
 
         Animal newAnimal = GetAnimal();
         lastAnimal = newAnimal;
-
+        score++;
         // 다음 동물 생성을 기다리는 코루틴
         StartCoroutine(WaitNext());
     }
@@ -105,5 +112,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         isOver = false;
         UIManager.Instance.GameRetry.gameObject.SetActive(true);
+
+        bestScore = Mathf.Max(score, PlayerPrefs.GetInt("BestScore"));
+        PlayerPrefs.SetInt("BestScore", bestScore);
     }
 }

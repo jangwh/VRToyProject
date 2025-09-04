@@ -10,6 +10,10 @@ public class UIManager : MonoBehaviour
     public Button GameStart;
     public Button GameRetry;
     public Button GameEnd;
+    public Image scoreImage;
+    public Text scoreText;
+    public Image bestScoreImage;
+    public Text bestScoreText;
 
     void Awake()
     {
@@ -32,9 +36,12 @@ public class UIManager : MonoBehaviour
         GameStart.gameObject.SetActive(false);
         GameRetry.gameObject.SetActive(false);
         GameEnd.gameObject.SetActive(false);
+        scoreImage.gameObject.SetActive(true);
+        bestScoreImage.gameObject.SetActive(true);
         GameManager.Instance.ClawMachine.SetActive(true);
         GameManager.Instance.GameStart();
         GameManager.Instance.XRController.transform.position = GameManager.Instance.XRControllerPos.position;
+        bestScoreText.text = $"Best Score : {PlayerPrefs.GetInt("BestScore").ToString()}";
     }
     public void OnGameRetry()
     {
@@ -42,7 +49,10 @@ public class UIManager : MonoBehaviour
         GameStart.gameObject.SetActive(false);
         GameRetry.gameObject.SetActive(false);
         GameEnd.gameObject.SetActive(false);
+        scoreImage.gameObject.SetActive(false);
+        bestScoreImage.gameObject.SetActive(false);
         GameManager.Instance.XRController.transform.position = GameManager.Instance.XRControllerPos.position;
+        GameManager.Instance.score = 0;
     }
     public void OnGameEnd()
     {
