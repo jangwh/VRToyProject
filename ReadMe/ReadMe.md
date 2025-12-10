@@ -1,8 +1,8 @@
 # AnimalSuikaGame
 <img width="1540" height="783" alt="Image" src="https://github.com/user-attachments/assets/11463c13-b376-44c4-a768-50b92f8f994e" />
 
-#  프로젝트 제목
-AnimalSuikaGame [1인 개발 프로젝트] My TIL link is [https://youtu.be/UxYZ_Yr1PTE](https://youtu.be/Hm648F6Sag4)
+#  AnimalSuikaGame
+[1인 개발 프로젝트] My TIL link is [https://youtu.be/UxYZ_Yr1PTE](https://youtu.be/Hm648F6Sag4)
 
 ## 1. 프로젝트 개요
 
